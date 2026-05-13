@@ -1,0 +1,56 @@
+[project]
+name = "electag"
+version = "0.0.1"
+description = "Klasifikasi multi-label atribut visual produk elektronik"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Dendy", email = "krangganese@gmail.com" }
+]
+
+# Dependencies
+dependencies = [
+    "torch>=2.0.0",       # Deep learning framework
+    "torchvision",        # Image processing library for PyTorch
+    "fastapi",            # REST API framework
+    "uvicorn[standard]",  # ASGI Server for FastAPI
+    "python-multipart",   # File upload support for FastAPI
+    "pandas",
+    "numpy",
+    "Pillow",             # Image loading and processing
+    "hydra-core>=1.3.2",  # Configuration management in config/
+    "scikit-learn",       # Evaluation metrics and utilities
+    "onnxruntime",        # ONNX model inference
+    "pydantic",           # Data validation for FastAPI
+    "matplotlib",         # Visualization library
+    "seaborn",            # Statistical data visualization library
+]
+
+# Development dependencies
+[project.optional-dependencies]
+dev = [
+  "pytest",             # Testing framework
+  "black",              # Code formatter
+  "ruff",               # Linter and code quality tool
+  "ipykernel",          # Jupyter kernel for development
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.hydra]
+run = { dir = "outputs/${now:%Y-%m-%d}/${now:%H:%M:%S}" }
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I"]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
