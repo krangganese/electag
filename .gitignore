@@ -1,0 +1,58 @@
+# --- Deep learning & data ---
+# Exclude raw and processed data
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Exclude large model files
+models/*.pt
+models/*.pth
+models/*.h5
+models/*.ckpt
+models/*.bin
+models/*.onnx
+
+# --- Python and environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+venv/
+env/
+ENV/
+
+# --- Build / package files ---
+dist/
+build/
+*.egg-info/
+*.spec
+
+# --- Jupyter Notebook ---
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# --- IDE & OS ---
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.log
+
+# --- Docker ---
+docker/volumes
+
+# --- Training logs and checkpoints ---
+# Hydra logs
+outputs/
+multirun/
+
+mlruns/
+lighting_logs/
+wandb/
+
+.coverage
+htmlcov/
+.nox/
+.tox/
